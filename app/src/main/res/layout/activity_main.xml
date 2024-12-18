@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- 顶部导航栏 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/red"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_menu"
+            app:tint="@color/white" />
+
+        <!-- 中间的三个功能区域 -->
+        <LinearLayout
+            android:id="@+id/ll_middle_section"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/toolbar_title_discover"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription=""
+                android:src="@drawable/ic_library"
+                android:textColor="@android:color/white"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/toolbar_title_music"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription=""
+                android:src="@drawable/ic_music"
+                android:textColor="@android:color/white"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/toolbar_title_profile"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription=""
+                android:src="@drawable/ic_profile"
+                android:textColor="@android:color/white"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:contentDescription="Search"
+            android:src="@drawable/ic_search"
+            app:tint="@color/white" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Tab栏 -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:tabIndicatorColor="@color/red"
+        app:tabTextColor="@android:color/black">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新曲" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="歌单" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="排行榜" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Fragment 容器 -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout" />
+
+
+    <!--    &lt;!&ndash; 轮播图 &ndash;&gt;-->
+    <!--    <androidx.viewpager2.widget.ViewPager2-->
+    <!--        android:id="@+id/viewpager_banner"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tab_layout" />-->
+
+    <!--    <com.google.android.material.tabs.TabLayout-->
+    <!--        android:id="@+id/tabLayout"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/viewpager_banner" />-->
+
+    <!--    &lt;!&ndash; 功能图标区域 &ndash;&gt;-->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/layout_function_icons"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:gravity="center"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/viewpager_banner">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:gravity="center"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <ImageView-->
+    <!--                android:layout_width="48dp"-->
+    <!--                android:layout_height="48dp"-->
+    <!--                android:contentDescription="私人FM"-->
+    <!--                android:src="@drawable/ic_fm" />-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="私人FM" />-->
+    <!--        </LinearLayout>-->
+
+    <!--        &lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_width="0dp"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:layout_weight="1"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:gravity="center"&ndash;&gt;-->
+    <!--        &lt;!&ndash;            android:orientation="vertical">&ndash;&gt;-->
+
+    <!--        &lt;!&ndash;            <ImageView&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:layout_width="48dp"&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:layout_height="48dp"&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:contentDescription="每日歌曲推荐"&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:src="@drawable/ic_daily_recommend" />&ndash;&gt;-->
+
+    <!--        &lt;!&ndash;            <TextView&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--        &lt;!&ndash;                android:text="每日歌曲推荐" />&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:gravity="center"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <ImageView-->
+    <!--                android:layout_width="48dp"-->
+    <!--                android:layout_height="48dp"-->
+    <!--                android:contentDescription="新歌榜"-->
+    <!--                android:src="@drawable/ic_ranking" />-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:text="云音乐新歌榜" />-->
+    <!--        </LinearLayout>-->
+    <!--    </LinearLayout>-->
+
+    <!--    &lt;!&ndash; 加载提示 &ndash;&gt;-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_loading"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="努力加载中..."-->
+    <!--        android:textColor="@color/red"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/layout_bottom_player"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/layout_function_icons" />-->
+
+    <!-- 底部播放栏 -->
+    <LinearLayout
+        android:id="@+id/layout_bottom_player"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_playback_method"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:contentDescription="播放方式"
+            android:src="@drawable/ic_loop_playback" />
+
+        <ImageView
+            android:id="@+id/iv_playlist"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:contentDescription="播放列表"
+            android:src="@drawable/ic_playlist" />
+
+        <ImageView
+            android:id="@+id/iv_song_cover"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:contentDescription="歌曲封面"
+            android:src="@drawable/ic_album_cover" />
+
+        <TextView
+            android:id="@+id/tv_song_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="稻香 - Jay Chou" />
+
+        <ImageView
+            android:id="@+id/iv_play_pause"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:contentDescription="播放按钮"
+            android:src="@drawable/ic_play" />
+
+        <ImageView
+            android:id="@+id/iv_next"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:contentDescription="下一曲"
+            android:src="@drawable/ic_next" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
